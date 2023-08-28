@@ -29,7 +29,9 @@ const onSearchSubmit = ( event ) => {
     event.preventDefault();
    // if (searchText.trim().length <=1) return;
     //console.log({searchText});
-    navigate(`?q=${ searchText }&asc=true`);
+
+    // navigate(`?q=${ searchText }&asc=true`);
+    navigate(`?q=${ searchText }`);
 
 
 }

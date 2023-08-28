@@ -4,16 +4,20 @@ import { AuthContext } from '../context/AuthContext';
 
 export const LoginPage = () => {
 
-const { login } = useContext(AuthContext)    
+const { login } = useContext(AuthContext);    
 
 const navigate = useNavigate();    
 
 const onLogin = () => {
 
+    //si localStorage.getItem('lastPath')  es nula devuelve la segunda expresion --> '/'
+    const lastPath = localStorage.getItem('lastPath') || '/';
+
     login('Sari Patiño');
 
 
-    navigate('/',{ replace: true});
+    // navigate('/',{ replace: true});
+    navigate(lastPath,{ replace: true});
 }
 
 
