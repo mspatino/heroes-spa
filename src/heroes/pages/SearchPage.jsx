@@ -19,7 +19,7 @@ const showSearch = (q.length === 0);
 
 const showError = (q.length > 0) && heroes.length === 0;
 
-console.log({q,heroes,showSearch,showError});
+// console.log({q,heroes,showSearch,showError});
 
 const { searchText, onInputChange } = useForm({
     searchText:q
@@ -31,6 +31,7 @@ const onSearchSubmit = ( event ) => {
     //console.log({searchText});
 
     // navigate(`?q=${ searchText }&asc=true`);
+    console.log('desde testing FORM');
     navigate(`?q=${ searchText }`);
 
 
@@ -45,7 +46,7 @@ const onSearchSubmit = ( event ) => {
     <div className="col-5">
     <h4>Busqueda</h4>
     <hr />
-    <form onSubmit={ onSearchSubmit }>
+    <form onSubmit={ onSearchSubmit } aria-label="form">
         <input 
         type="text"
         placeholder="Search a hero"
@@ -81,7 +82,7 @@ const onSearchSubmit = ( event ) => {
                 Buscar un hero
         </div>
 
-        <div className="alert alert-danger animate__animated animate__fadeIn"
+        <div aria-label="alert-danger" className="alert alert-danger animate__animated animate__fadeIn"
         style={{display: showError ? '' : 'none'}}>
             No hero with <b>{ q }</b>
         </div>
